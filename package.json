@@ -1,0 +1,29 @@
+{
+	"name": "@tyree-api/api",
+	"version": "1.0.0",
+	"description": "Core API Framework for private use",
+	"main": "index.js",
+	"scripts": {
+		"test": "exit 0",
+		"start": "node index.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/tyree-api/API.git"
+	},
+	"keywords": [
+		"API"
+	],
+	"author": "Tyree Zacharopoulos <tyree@tyree.ca>",
+	"license": "AGPL-3.0",
+	"bugs": {
+		"url": "https://github.com/tyree-api/API/issues"
+	},
+	"homepage": "https://github.com/tyree-api/API#readme",
+	"dependencies": {
+		"@fastify/rate-limit": "^8.0.0",
+		"@fastify/static": "^6.9.0",
+		"fastify": "^4.14.1",
+		"fastify-plugin": "^4.5.0"
+	}
+}
