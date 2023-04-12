@@ -19,9 +19,11 @@
 		"@fastify/autoload": "^5.0.0",
 		"@fastify/rate-limit": "^8.0.0",
 		"@fastify/sensible": "^5.0.0",
+		"dotenv": "^16.0.3",
 		"fastify": "^4.0.0",
 		"fastify-cli": "^5.7.1",
-		"fastify-plugin": "^4.0.0"
+		"fastify-plugin": "^4.0.0",
+		"fastify-secrets-hashicorp": "^3.0.0"
 	},
 	"devDependencies": {
 		"jest": "^29.5.0",
