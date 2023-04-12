@@ -7,6 +7,7 @@
 		"test": "test"
 	},
 	"scripts": {
+		"test:report": "jest --ci --runInBand --reporters=default --reporters=jest-junit",
 		"test": "jest",
 		"start": "fastify start -l info app.js",
 		"dev": "fastify start -w -l info -P app.js"
@@ -23,7 +24,8 @@
 		"fastify-plugin": "^4.0.0"
 	},
 	"devDependencies": {
-		"jest": "^29.5.0"
+		"jest": "^29.5.0",
+		"jest-junit": "^15.0.0"
 	},
 	"jest": {
 		"verbose": true

@@ -10,8 +10,12 @@ jobs:
             - node/install-packages:
                   pkg-manager: npm
             - run:
-                  command: npm run test
+                  command: npm run test:report
                   name: Run tests
+                  environment:
+                      JEST_JUNIT_OUTPUT_DIR: ./reports/
+            - store_test_results:
+                  path: ./reports/
             - persist_to_workspace:
                   root: ~/project
                   paths:
