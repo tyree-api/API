@@ -2,10 +2,10 @@
 
 module.exports = async function (fastify, opts) {
 	fastify.get("/verify", {
+		preValidation: fastify.authenticate,
 		handler: function (request, reply) {
 			reply.send(request.user);
 		},
-		preValidation: fastify.authenticate,
 	});
 
 	fastify.get("/has-role", (req, reply) => {
@@ -22,7 +22,6 @@ module.exports = async function (fastify, opts) {
 			preHandler: [fastify.guard.scope("read:basic")],
 		},
 		(req, reply) => {
-			// 'user' should already be defined in req object
 			reply.send(req.user);
 		}
 	);

@@ -1,7 +1,7 @@
 "use strict";
 require("dotenv").config();
 const Fastify = require("fastify")({
-	logger: false,
+	logger: true,
 	trustProxy: true,
 });
 const path = require("path");
