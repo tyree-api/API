@@ -1,16 +1,25 @@
 "use strict";
 
+const pushops = require("@tyree-api/api-pushoperations-module");
+
 module.exports = async function (fastify, opts) {
-	fastify.get("/schedule", {
-		handler: async function (request, reply) {
-			// axios get
-			const { data } = await fastify.axios.pushops.post("/api/v1/ios/login", {
-				userName: fastify.secrets.pushOpsusername,
-				passWord: fastify.secrets.pushOpspassword,
-			});
-			reply.send({
-				status: data.status,
-			});
+	fastify.get(
+		"/schedule",
+		{
+			config: {
+				rateLimit: {
+					max: 10,
+					timeWindow: "30 seconds",
+				},
+			},
 		},
-	});
+		async function (request, reply) {
+			const response = await pushops.getSchedules(
+				fastify.secrets.pushOpsapiaddr,
+				fastify.secrets.pushOpsusername,
+				fastify.secrets.pushOpspassword
+			);
+			reply.send(response);
+		}
+	);
 };
