@@ -7,7 +7,7 @@
 		"test": "test"
 	},
 	"scripts": {
-		"test:report": "jest --ci --runInBand --reporters=default --reporters=jest-junit",
+		"test:report": "jest --ci --runInBand --detectOpenHandles --forceExit --reporters=default --reporters=jest-junit",
 		"test": "jest --ci --detectOpenHandles --runInBand --forceExit",
 		"start": "fastify start -l info app.js",
 		"dev": "fastify start -w -l info -P app.js --options"
