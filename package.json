@@ -10,7 +10,7 @@
 		"test:report": "jest --ci --runInBand --reporters=default --reporters=jest-junit",
 		"test": "jest",
 		"start": "fastify start -l info app.js",
-		"dev": "fastify start -w -l info -P app.js"
+		"dev": "fastify start -w -l info -P app.js --options"
 	},
 	"keywords": [],
 	"author": "Tyree Zacharopoulos <tyree@tyree.ca>",
@@ -27,6 +27,7 @@
 		"fastify-auth0-verify": "^1.1.1",
 		"fastify-axios": "^1.2.6",
 		"fastify-cli": "^5.7.1",
+		"fastify-guard": "^2.0.0",
 		"fastify-plugin": "^4.0.0",
 		"fastify-secrets-hashicorp": "^3.0.0",
 		"node-cache": "^5.1.2"

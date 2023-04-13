@@ -1,20 +1,6 @@
 "use strict";
 
 module.exports = async function (fastify, opts) {
-	fastify.get(
-		"/",
-		{
-			config: {
-				rateLimit: {
-					max: 300,
-					timeWindow: "1 minute",
-				},
-			},
-		},
-		async function (request, reply) {
-			return fastify.secrets.pushOpsusername;
-		}
-	);
 	fastify.get("/verify", {
 		handler: function (request, reply) {
 			reply.send(request.user);
@@ -22,14 +8,22 @@ module.exports = async function (fastify, opts) {
 		preValidation: fastify.authenticate,
 	});
 
-	fastify.get("/test", {
-		handler: async function (request, reply) {
-			// axios get
-			const { data } = await fastify.axios.pushops.post("/api/v1/ios/login", {
-				userName: fastify.secrets.pushOpsusername,
-				passWord: fastify.secrets.pushOpspassword,
-			});
-			reply.send(data.status);
-		},
+	fastify.get("/has-role", (req, reply) => {
+		reply.send(fastify.guard.hasRole(req, "read:basic"));
 	});
+
+	fastify.get("/has-scope", (req, reply) => {
+		reply.send(fastify.guard.hasScope(req, "read:basic"));
+	});
+	fastify.get(
+		"/test",
+		{
+			preValidation: fastify.authenticate,
+			preHandler: [fastify.guard.scope("read:basic")],
+		},
+		(req, reply) => {
+			// 'user' should already be defined in req object
+			reply.send(req.user);
+		}
+	);
 };
