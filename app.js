@@ -1,11 +1,11 @@
 "use strict";
 require("dotenv").config();
-const path = require("path");
-const AutoLoad = require("@fastify/autoload");
 const Fastify = require("fastify")({
 	logger: true,
 	trustProxy: true,
 });
+const path = require("path");
+const AutoLoad = require("@fastify/autoload");
 
 Fastify.register(AutoLoad, {
 	dir: path.join(__dirname, "plugins"),
