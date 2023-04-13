@@ -1,16 +1,12 @@
 const supertest = require("supertest");
 const app = require("../../app");
 
-test("GET `/` route", async () => {
+test("GET `/v1/pushops/schedule` endpoint", async () => {
 	await app.ready();
 	const response = await supertest(app.server)
-		.get("/")
-		.expect(501)
+		.get("/v1/pushops/schedule")
+		.expect(401)
 		.expect("Content-Type", "application/json; charset=utf-8");
 
-	expect(response.body).toEqual({
-		statusCode: 501,
-		error: "Not Implemented",
-		message: "Not Implemented",
-	});
+	expect(response.status).toEqual(401);
 });

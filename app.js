@@ -1,7 +1,7 @@
 "use strict";
 require("dotenv").config();
 const Fastify = require("fastify")({
-	logger: true,
+	logger: false,
 	trustProxy: true,
 });
 const path = require("path");
@@ -23,3 +23,5 @@ Fastify.listen({ port: 3000, host: "0.0.0.0" }, function (err, address) {
 		process.exit(1);
 	}
 });
+
+module.exports = Fastify;
