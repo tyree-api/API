@@ -11,4 +11,13 @@ describe("Push Operations Endpoint Checks", () => {
 
 		expect(response.status).toEqual(401);
 	});
+	test("GET `/v1/pushops/wwt` NO AUTH endpoint", async () => {
+		await app.ready();
+		const response = await supertest(app.server)
+			.get("/v1/pushops/wwt")
+			.expect(200)
+			.expect("Content-Type", "application/json; charset=utf-8");
+
+		expect(response).toEqual(expect.objectContaining({}));
+	});
 });
