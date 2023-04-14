@@ -21,7 +21,7 @@
 		"@fastify/rate-limit": "^8.0.0",
 		"@fastify/sensible": "^5.0.0",
 		"@fastify/websocket": "^7.2.0",
-		"@tyree-api/api-pushoperations-module": "^1.0.3",
+		"@tyree-api/api-pushoperations-module": "^1.0.4",
 		"dotenv": "^16.0.3",
 		"fastify": "^4.0.0",
 		"fastify-auth0-verify": "^1.1.1",
