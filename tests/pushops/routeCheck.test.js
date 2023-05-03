@@ -15,7 +15,7 @@ describe("Push Operations Endpoint Checks", () => {
 		await app.ready();
 		const response = await supertest(app.server)
 			.get("/v1/pushops/wwt")
-			.expect(200)
+			.expect(401)
 			.expect("Content-Type", "application/json; charset=utf-8");
 
 		// Change to expect 401 when auth is implemented
