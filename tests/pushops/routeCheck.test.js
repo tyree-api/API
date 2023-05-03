@@ -20,6 +20,6 @@ describe("Push Operations Endpoint Checks", () => {
 
 		// Change to expect 401 when auth is implemented
 
-		expect(response).toEqual(expect.objectContaining({}));
+		expect(response.status).toEqual(401);
 	});
 });
