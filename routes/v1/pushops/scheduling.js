@@ -7,7 +7,7 @@ module.exports = async function (fastify, opts) {
 		"/schedule",
 		{
 			preValidation: fastify.authenticate,
-			preHandler: [fastify.guard.scope(["read:schedules"])],
+			preHandler: [fastify.guard.scope(["schedules"])],
 			config: {
 				rateLimit: {
 					max: 10,
@@ -28,8 +28,8 @@ module.exports = async function (fastify, opts) {
 	fastify.get(
 		"/wwt",
 		{
-			// preValidation: fastify.authenticate,
-			// preHandler: [fastify.guard.scope(["read:schedules"])],
+			preValidation: fastify.authenticate,
+			preHandler: [fastify.guard.scope(["schedules"])],
 			config: {
 				rateLimit: {
 					max: 10,

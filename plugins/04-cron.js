@@ -12,7 +12,7 @@ module.exports = fp(async function (fastify, opts) {
 				onTick: async () => {
 					console.log("Cron job running");
 				},
-				start: true,
+				start: false,
 			},
 		],
 	});
