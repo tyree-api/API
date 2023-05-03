@@ -18,6 +18,8 @@ describe("Push Operations Endpoint Checks", () => {
 			.expect(200)
 			.expect("Content-Type", "application/json; charset=utf-8");
 
+		// Change to expect 401 when auth is implemented
+
 		expect(response).toEqual(expect.objectContaining({}));
 	});
 });
